@@ -1,0 +1,8 @@
+# command: PYTHONPATH=src python3 -c '<smoke: gate refuses None and auto approvals, accepts named human>' (run in repo cwd; gate log removed after)
+PASS refused: automated outreach is disabled by design; a named human must approve
+PASS refused: automated outreach is disabled by design; a named human must approve
+PASS approved: {'draft_id': 'd2', 'channel': 'email', 'approved_by': 'm.kamama'}
+--- outreach_gate_log.jsonl contents:
+{"ts": 1792865610.0677822, "draft_id": "d1", "channel": "email", "outcome": "refused", "detail": "no valid human approval"}
+{"ts": 1792865610.0678961, "draft_id": "d1", "channel": "email", "outcome": "refused", "detail": "no valid human approval"}
+{"ts": 1792865610.0679348, "draft_id": "d2", "channel": "email", "outcome": "approved", "detail": "m.kamama"}
