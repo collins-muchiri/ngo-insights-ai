@@ -1,0 +1,34 @@
+# command: npm ci (apps/web)
+npm notice To update run: npm install -g npm@12.2.1
+npm notice
+npm error A complete log of this run can be found in: /tmp/.npm/_logs/2026-10-24T18_10_26_157Z-debug-0.log
+95 error
+95 error Options:
+95 error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]
+95 error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]
+95 error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]
+95 error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]
+95 error [--no-bin-links] [--no-fund] [--dry-run]
+95 error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]
+95 error [-ws|--workspaces] [--include-workspace-root] [--install-links]
+95 error
+95 error aliases: clean-install, ic, install-clean, isntall-clean
+95 error
+95 error Run "npm help ci" for more info
+96 verbose cwd /tmp/arena/tenants/0a21b35e-c99d-4ade-99ab-72c28be46154/sessions/5a1891ec-d5ec-4f2d-8bc3-7a104c67ce12/workspace/audit_ws/ngo-insights-ai/apps/web
+97 verbose os Linux 4.19.91-c8dfc93.al7.x86_64
+98 verbose node v20.20.2
+99 verbose npm  v10.8.2
+100 notice
+100 notice New major version of npm available! 10.8.2 -> 12.2.1
+100 notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.1
+100 notice To update run: npm install -g npm@12.2.1
+100 notice  { force: true, [Symbol(proc-log.meta)]: true }
+101 verbose exit 1
+102 verbose code 1
+103 error A complete log of this run can be found in: /tmp/.npm/_logs/2026-10-24T18_10_26_157Z-debug-0.log
+# command: npm install --no-audit --no-fund (fallback after npm ci EUSAGE lockfile-out-of-sync failure above)
+│    npm i @prisma/client@latest                          │
+└─────────────────────────────────────────────────────────┘
+
+added 379 packages in 29s

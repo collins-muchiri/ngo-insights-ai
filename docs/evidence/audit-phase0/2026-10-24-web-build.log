@@ -1,0 +1,25 @@
+# command: npm run build
+
+> ngo-ai-landing@0.1.0 build
+> next build
+
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+   ▲ Next.js 14.1.0
+
+   Linting and checking validity of types ...
+Failed to compile.
+
+./components/Hero.tsx:47:16
+Type error: Cannot find name 'Layout'.
+
+[0m [90m 45 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+[0m [90m 46 |[39m             [33m<[39m[33mdiv[39m className[33m=[39m[32m"flex items-center justify-center space-x-3 text-slate-500"[39m[33m>[39m[0m
+[0m[31m[1m>[22m[39m[90m 47 |[39m               [33m<[39m[33mLayout[39m className[33m=[39m[32m"w-5 h-5 text-brand-500"[39m [33m/[39m[33m>[39m[0m
+[0m [90m    |[39m                [31m[1m^[22m[39m[0m
+[0m [90m 48 |[39m               [33m<[39m[33mspan[39m className[33m=[39m[32m"text-sm font-medium uppercase tracking-wider"[39m[33m>[39m[33mIntuitive[39m [33mUI[39m[33m<[39m[33m/[39m[33mspan[39m[33m>[39m[0m
+[0m [90m 49 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
+[0m [90m 50 |[39m           [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m[0m
