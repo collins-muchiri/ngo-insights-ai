@@ -38,7 +38,7 @@ jobs:
       - name: Suppression audit (mission rule 4.7)
         run: python scripts/audit_suppressions.py --check
 
-      - name: Tests (compliance core: outreach gate + source allowlist)
+      - name: "Tests (compliance core: outreach gate + source allowlist)"
         run: python -m pytest tests/ -q
 
       - name: Tracked-file drift guard
