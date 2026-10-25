@@ -46,7 +46,7 @@ export default function DemoSection() {
                 </div>
                 <div>
                   <h4 className="text-white font-semibold text-lg">Personalized Walkthrough</h4>
-                  <p className="text-slate-400 text-sm">A 30-minute deep dive tailored to your NGO's specific sector and needs.</p>
+                  <p className="text-slate-400 text-sm">A 30-minute deep dive tailored to your NGO&apos;s specific sector and needs.</p>
                 </div>
               </div>
 
@@ -56,7 +56,7 @@ export default function DemoSection() {
                 </div>
                 <div>
                   <h4 className="text-white font-semibold text-lg">Live Analysis Sample</h4>
-                  <p className="text-slate-400 text-sm">We'll run a live sample analysis on one of your target regions during the call.</p>
+                  <p className="text-slate-400 text-sm">We&apos;ll run a live sample analysis on one of your target regions during the call.</p>
                 </div>
               </div>
             </div>

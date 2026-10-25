@@ -1,11 +1,15 @@
 import { PrismaClient } from '@prisma/client'
 
-declare const global: { prisma?: PrismaClient }
+// Standard dev-hot-reload singleton without `any`:
+const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient }
 
-const prisma = (global as any).prisma || new PrismaClient()
+const prisma = globalForPrisma.prisma || new PrismaClient()
 
 if (process.env.NODE_ENV !== 'production') {
-  ;(global as any).prisma = prisma
+  globalForPrisma.prisma = prisma
 }
 
+// Named export added: seven call sites use `import { prisma }` (the default-only
+// export made every one of them a TS2614 error - builds were never green).
+export { prisma }
 export default prisma
