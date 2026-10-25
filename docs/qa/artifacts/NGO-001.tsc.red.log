@@ -1,0 +1,11 @@
+# RED evidence: npx tsc --noEmit on apps/web sources as committed on main
+# (captured this session at main=5bbcb27 with upgraded deps but UNFIXED sources;
+# on stock main the build additionally fails earlier at Hero.tsx:47
+# "Cannot find name 'Layout'" - see PR #1 Phase-0 artefacts for that log).
+pages/api/leads.ts(2,10): error TS2614: Module '"../../prisma"' has no exported member 'prisma'. Did you mean to use 'import prisma from "../../prisma"' instead?
+pages/api/pricing.ts(2,10): error TS2614: Module '"../../prisma"' has no exported member 'prisma'. Did you mean to use 'import prisma from "../../prisma"' instead?
+pages/blog/[slug].tsx(5,10): error TS2614: Module '"../../prisma"' has no exported member 'prisma'. Did you mean to use 'import prisma from "../../prisma"' instead?
+pages/blog/index.tsx(7,10): error TS2614: Module '"../../prisma"' has no exported member 'prisma'. Did you mean to use 'import prisma from "../../prisma"' instead?
+pages/index.tsx(10,10): error TS2614: Module '"../prisma"' has no exported member 'prisma'. Did you mean to use 'import prisma from "../prisma"' instead?
+pages/pricing.tsx(5,10): error TS2614: Module '"../prisma"' has no exported member 'prisma'. Did you mean to use 'import prisma from "../prisma"' instead?
+pages/product.tsx(20,10): error TS2614: Module '"../prisma"' has no exported member 'prisma'. Did you mean to use 'import prisma from "../prisma"' instead?

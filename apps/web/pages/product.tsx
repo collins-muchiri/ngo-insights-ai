@@ -157,7 +157,7 @@ export default function ProductOverview({ latestNeeds }: { latestNeeds: Communit
                                         Never Miss a Community Need With <span className="text-brand-500">Regional Scrapers</span>
                                     </h2>
                                     <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-                                        Our Python-based engine uses Scrapy and Selenium to monitor digital conversations across East Africa. We don't just look at global news; we monitor regional forums and community dashboards where real voices are heard.
+                                        Our Python-based engine uses Scrapy and Selenium to monitor digital conversations across East Africa. We don&apos;t just look at global news; we monitor regional forums and community dashboards where real voices are heard.
                                     </p>
                                     <ul className="space-y-4">
                                         {[
@@ -186,7 +186,7 @@ export default function ProductOverview({ latestNeeds }: { latestNeeds: Communit
                                             <ArrowRight className="w-4 h-4" />
                                             <span>[2026-01-18] Crawl started: 12 sources identified</span>
                                         </div>
-                                        <div className="text-slate-500 ml-6">Extracting sentiment for "Water shortage in Laikipia"...</div>
+                                        <div className="text-slate-500 ml-6">Extracting sentiment for &quot;Water shortage in Laikipia&quot;...</div>
                                         <div className="text-green-600 font-bold ml-6">Success: 8 high-urgency points recorded.</div>
                                     </div>
                                 </div>

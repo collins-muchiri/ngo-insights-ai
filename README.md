@@ -10,8 +10,12 @@ A professional, high-performance website and AI-powered automation suite for NGO
 
 ## Features
 - NGO Research Brief Generation (5-section, 1-page, bullet-only format)
-- Lead Discovery & Shortlisting (LinkedIn, NGO sites, job postings)
-- Outreach Message Drafting (WhatsApp, LinkedIn, email drafts)
+- Lead Discovery & Shortlisting from allowlisted compliant sources only (NGO
+  registration registers, IATI, ReliefWeb, public org sites) - see
+  docs/COMPLIANT_SOURCES.md; LinkedIn harvesting is prohibited by this project's
+  own compliance policy and is blocked in code (src/source_allowlist.py)
+- Outreach Message Drafting (WhatsApp/LinkedIn/email DRAFTS): a named human must
+  approve and send; automated outreach fails closed in src/outreach_gate.py
 - Public website showcasing capabilities (pricing, demo, blog/insights)
 
 ## Tech Stack
@@ -27,37 +31,24 @@ A professional, high-performance website and AI-powered automation suite for NGO
 
 ## Project Structure
 ```
-apps/web/                 # Next.js frontend
-├─ pages/
-│  ├─ _app.tsx
-│  ├─ _document.tsx
-│  ├─ index.tsx          # Landing
-│  ├─ pricing.tsx        # Pricing tiers
-│  ├─ demo.tsx           # Demo + Calendly
-│  ├─ contact.tsx         # Lead capture
-│  ├─ about.tsx           # Mission
-│  └─ blog/
-│     ├─ index.tsx
-│     └─ [slug].tsx
-├─ components/
-│  ├─ Navbar.tsx
-│  ├─ Hero.tsx
-│  ├─ FeatureGrid.tsx
-│  ├─ PricingCard.tsx
-│  ├─ DemoSection.tsx
-│  └─ Footer.tsx
-├─ styles/
-│  └─ globals.css          # Tailwind globals
-├─ prisma/
-│  ├─ schema.prisma        # DB models
-│  ├─ index.ts            # Prisma singleton
-│  └─ seed.js             # DB seed data
-├─ pages/api/
-│  └─ leads.ts             # Lead capture API
-└─ docker-compose.yml         # Local Postgres
+apps/web/                 # Next.js 16 (pages router) + Prisma frontend
+├─ pages/                 # index, product, pricing, demo, contact, checkout
+│  ├─ blog/               # index + [slug] (SSG with fallback content)
+│  └─ api/                # leads.ts, pricing.ts
+├─ components/            # Navbar, Hero, FeatureGrid, PricingCard, DemoSection
+├─ prisma/                # schema.prisma, index.ts (singleton), seed.js
+├─ styles/globals.css     # Tailwind globals
+├─ eslint.config.mjs      # ESLint 9 flat config (eslint-config-next 16)
+└─ docker-compose.yml     # Local Postgres
 
-backend/                    # Node.js + Express (optional next phase)
-└─ automation/                # Python + LangChain (later)
+src/                      # Python compliance core (fail-closed by design)
+├─ outreach_gate.py       # human-in-the-loop gate + JSONL audit log
+└─ source_allowlist.py    # governed source list; LinkedIn prohibited
+
+tests/                    # pytest suite for src/ (wired into CI)
+automation/               # scrapers + processors (own requirements.txt; see
+                          # automation/data/CORRECTIONS.md for data caveats)
+docs/                     # COMPLIANT_SOURCES, PRIVACY_NOTE, BRIEF_QUALITY_EVAL
 ```
 
 ## Phase 1 MVP (2 weeks)
@@ -73,7 +64,7 @@ backend/                    # Node.js + Express (optional next phase)
 - 5-section bullet-only brief output (PDF/HTML/plain)
 
 ## Phase 3 Lead Discovery (2–3 weeks)
-- LinkedIn and web scraping tools
+- Compliant-source discovery per docs/COMPLIANT_SOURCES.md (registration registers, IATI, ReliefWeb, public org sites). No LinkedIn harvesting: prohibited by policy and blocked in code
 - Curated shortlist dashboard
 - CSV/CRM export
 

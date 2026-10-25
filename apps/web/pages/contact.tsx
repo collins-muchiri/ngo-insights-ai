@@ -55,8 +55,8 @@ export default function Contact() {
                 {/* Contact Info */}
                 <div>
                   <h1 className="text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                    Let's scale your <br />
-                    <span className="gradient-text">NGO's impact.</span>
+                    Let&apos;s scale your <br />
+                    <span className="gradient-text">NGO&apos;s impact.</span>
                   </h1>
                   <p className="text-lg text-slate-600 mb-12 leading-relaxed">
                     Have questions about our AI platform or regional datasets? Our team is ready to support your mission across East Africa.

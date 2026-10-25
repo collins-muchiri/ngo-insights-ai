@@ -25,7 +25,7 @@ export default function PricingPage({ plans }: { plans: Plan[] }) {
                 Simple, Transparent <span className="gradient-text">Pricing</span>
               </h1>
               <p className="text-lg text-slate-600">
-                Choose the plan that fits your NGO's scale and mission. No hidden fees, just pure impact.
+                Choose the plan that fits your NGO&apos;s scale and mission. No hidden fees, just pure impact.
               </p>
             </div>
 
