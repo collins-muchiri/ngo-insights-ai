@@ -46,7 +46,7 @@ export default function DemoPage() {
                   </div>
                   <h3 className="text-xl font-bold text-slate-900">Custom Scenarios</h3>
                   <p className="text-slate-600 leading-relaxed text-sm">
-                    We'll demonstrate the platform using data relevant to your specific sector, whether it's Healthcare, Education, or Environment.
+                    We&apos;ll demonstrate the platform using data relevant to your specific sector, whether it&apos;s Healthcare, Education, or Environment.
                   </p>
                 </div>
 

@@ -6,6 +6,11 @@ import Link from 'next/link';
 import { GetServerSideProps } from 'next';
 import { prisma } from '../../prisma';
 
+// Frozen at module load (SSR/build time): Date.now() during render is impure
+// (react-hooks purity rule) and can differ between server render and client
+// hydration, risking hydration mismatches.
+const BUILD_FALLBACK_DATE = new Date().toISOString();
+
 interface Post {
   id: string;
   slug: string;
@@ -51,7 +56,7 @@ export default function BlogIndex({ posts }: { posts: Post[] }) {
                   <div className="flex items-center justify-between pt-6 border-t border-slate-100 mt-auto">
                     <div className="flex items-center space-x-2 text-slate-400 text-[10px]">
                       <Calendar className="w-3 h-3" />
-                      <span>{new Date(post.publishedAt || Date.now()).toLocaleDateString()}</span>
+                      <span>{new Date(post.publishedAt || BUILD_FALLBACK_DATE).toLocaleDateString()}</span>
                     </div>
                     <Link href={`/blog/${post.slug}`} className="text-brand-600 font-bold text-sm flex items-center space-x-1 hover:text-brand-700 transition-all">
                       <span>Read More</span>

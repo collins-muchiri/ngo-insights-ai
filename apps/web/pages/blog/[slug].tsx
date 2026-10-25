@@ -5,6 +5,11 @@ import Link from 'next/link';
 import { prisma } from '../../prisma';
 import { ArrowLeft, Share2, Printer, Calendar, User } from 'lucide-react';
 
+// Frozen at module load (SSR/build time): Date.now() during render is impure
+// (react-hooks purity rule) and can differ between server render and client
+// hydration, risking hydration mismatches.
+const BUILD_FALLBACK_DATE = new Date().toISOString();
+
 interface Post {
   id: string;
   slug: string;
@@ -54,7 +59,7 @@ export default function BlogPost({ post }: { post: Post }) {
                       <p className="text-slate-900 font-bold text-sm">{post.author || 'AI Research Team'}</p>
                       <div className="flex items-center space-x-2 text-slate-500 text-xs mt-1">
                         <Calendar className="w-3 h-3" />
-                        <span>{new Date(post.publishedAt || Date.now()).toLocaleDateString()}</span>
+                        <span>{new Date(post.publishedAt || BUILD_FALLBACK_DATE).toLocaleDateString()}</span>
                         <span>•</span>
                         <span>5 min read</span>
                       </div>
@@ -108,7 +113,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     };
   } catch (error) {
     // Fallback data for specific slugs
-    const fallbacks: Record<string, any> = {
+    const fallbacks: Record<string, { title: string; author: string; publishedAt: string; content: string }> = {
       'ai-impact-kenya-2026': {
         title: 'How AI is Transforming Regional Outreach in Kenya',
         author: 'AI Insights Hub',

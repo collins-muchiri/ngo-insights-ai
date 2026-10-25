@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Sparkles, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowRight, Sparkles, ShieldCheck, Zap, Layout } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Hero() {

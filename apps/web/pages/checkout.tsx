@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Navbar from '../components/Navbar';
@@ -14,15 +14,9 @@ export default function CheckoutPage() {
         name: '',
         email: '',
         organization: '',
-        country: '',
-        interest: ''
+        country: ''
     });
 
-    useEffect(() => {
-        if (plan) {
-            setFormData(prev => ({ ...prev, interest: `Plan: ${plan}` }));
-        }
-    }, [plan]);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -34,6 +28,9 @@ export default function CheckoutPage() {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     ...formData,
+                    // Derived at submit time (was mirrored into state via an
+                    // effect: synchronous setState in effect = cascading renders).
+                    interest: plan ? `Plan: ${plan}` : '',
                     source: 'Pricing Checkout'
                 }),
             });

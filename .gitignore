@@ -36,3 +36,6 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Build artefacts (committed tsbuildinfo caused perpetual drift-guard noise)
+*.tsbuildinfo
