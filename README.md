@@ -1,5 +1,11 @@
 # NGO AI Platform — East Africa (Kenya)
 
+*AI-powered outreach intelligence for East African NGOs — automates community data collection and beneficiary identification; TypeScript.*
+
+![category](https://img.shields.io/badge/category-monitoring-evaluation-8B5CF6?style=flat-square) ![language](https://img.shields.io/badge/language-TypeScript-2563EB?style=flat-square) ![license](https://img.shields.io/badge/license-MIT-16A34A?style=flat-square) ![maintenance](https://img.shields.io/badge/maintenance-active-16A34A?style=flat-square) ![repo](https://img.shields.io/badge/repo-ngo--insights--ai-111827?style=flat-square)
+
+---
+
 A professional, high-performance website and AI-powered automation suite for NGOs and donor-funded startups in East Africa.
 
 ## Core Principles
@@ -133,3 +139,7 @@ Next steps
 - Add Calendly URL and WhatsApp number in DemoSection.tsx (replace placeholders)
 - Prepare Tailwind integration (optional) and brand assets
 - Plan backend and automation phases after MVP is stable
+
+## Contribution and license
+
+Issues and pull requests are welcome — please open an issue describing the proposed change before submitting substantive work. This project is released under the MIT License.
