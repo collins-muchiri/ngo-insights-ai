@@ -1,4 +1,4 @@
-# NGO AI Landing (MVP) — Phase 1
+# NGO AI Landing (MVP): Phase 1
 
 This folder contains the Next.js frontend and API for the NGO AI Insights & Outreach platform focused on East Africa (Kenya).
 

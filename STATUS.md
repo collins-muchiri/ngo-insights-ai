@@ -12,17 +12,17 @@ Last updated: 2026-10-24 (UTC) by Phase 0 audit session.
 
 | Command | Result |
 |---|---|
-| `npm ci` (apps/web) | FAIL - lockfile out of sync (EUSAGE, verbatim in web-install.log) |
-| `npm install` (apps/web) | PASS - 379 packages |
-| `npm run build` (apps/web) | FAIL - Type error: Cannot find name 'Layout' (Hero.tsx:47) |
-| `PYTHONPATH=src python3` outreach_gate smoke | PASS - refuses None/'auto' approvals, accepts named human, JSONL audit log written |
-| automation processors | NOT RUNNABLE - require OPENAI_API_KEY / DATABASE_URL, undeclared langchain_openai dep, no mocks |
+| `npm ci` (apps/web) | FAIL: lockfile out of sync (EUSAGE, verbatim in web-install.log) |
+| `npm install` (apps/web) | PASS: 379 packages |
+| `npm run build` (apps/web) | FAIL: Type error: Cannot find name 'Layout' (Hero.tsx:47) |
+| `PYTHONPATH=src python3` outreach_gate smoke | PASS: refuses None/'auto' approvals, accepts named human, JSONL audit log written |
+| automation processors | NOT RUNNABLE: require OPENAI_API_KEY / DATABASE_URL, undeclared langchain_openai dep, no mocks |
 
 ## Known-broken / not real
 
 1. Web build broken (one missing import) and `npm ci` broken (stale lockfile).
 2. Zero tests, zero CI workflows.
-3. README advertises LinkedIn lead discovery, WhatsApp drafting, Airflow/Prefect, Twilio, backend/ - none exist; LinkedIn is prohibited by docs/COMPLIANT_SOURCES.md.
+3. README advertises LinkedIn lead discovery, WhatsApp drafting, Airflow/Prefect, Twilio, backend/: none exist; LinkedIn is prohibited by docs/COMPLIANT_SOURCES.md.
 4. Committed scraped dataset is mislabelled ("eastafrica" file contains Oceania/world alerts).
 5. BRIEF_QUALITY_EVAL.md promises an EVALUATION.md that does not exist.
 

@@ -1,6 +1,6 @@
 # Data corrections
 
-## ngo_news_eastafrica_20260118_152151.json - MISLABELLED
+## ngo_news_eastafrica_20260118_152151.json: MISLABELLED
 
 Despite the filename ("eastafrica"), the 5 records in this file are ReliefWeb
 **global/Oceania** alerts (Pacific Syndromic Surveillance System bulletins,

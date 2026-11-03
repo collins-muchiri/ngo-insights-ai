@@ -1,6 +1,6 @@
-# NGO AI Platform — East Africa (Kenya)
+# NGO AI Platform: East Africa (Kenya)
 
-*AI-powered outreach intelligence for East African NGOs — automates community data collection and beneficiary identification; TypeScript.*
+*AI-powered outreach intelligence for East African NGOs: automates community data collection and beneficiary identification; TypeScript.*
 
 ![category](https://img.shields.io/badge/category-monitoring-evaluation-8B5CF6?style=flat-square) ![language](https://img.shields.io/badge/language-TypeScript-2563EB?style=flat-square) ![license](https://img.shields.io/badge/license-MIT-16A34A?style=flat-square) ![maintenance](https://img.shields.io/badge/maintenance-active-16A34A?style=flat-square) ![repo](https://img.shields.io/badge/repo-ngo--insights--ai-111827?style=flat-square)
 
@@ -17,7 +17,7 @@ A professional, high-performance website and AI-powered automation suite for NGO
 ## Features
 - NGO Research Brief Generation (5-section, 1-page, bullet-only format)
 - Lead Discovery & Shortlisting from allowlisted compliant sources only (NGO
-  registration registers, IATI, ReliefWeb, public org sites) - see
+  registration registers, IATI, ReliefWeb, public org sites): see
   docs/COMPLIANT_SOURCES.md; LinkedIn harvesting is prohibited by this project's
   own compliance policy and is blocked in code (src/source_allowlist.py)
 - Outreach Message Drafting (WhatsApp/LinkedIn/email DRAFTS): a named human must
@@ -64,21 +64,21 @@ docs/                     # COMPLIANT_SOURCES, PRIVACY_NOTE, BRIEF_QUALITY_EVAL
 - Mobile-first, fast performance, SEO basics
 - Professional branding placeholders
 
-## Phase 2 Brief Generator (2–3 weeks)
+## Phase 2 Brief Generator (2-3 weeks)
 - Python/LangChain pipeline to ingest reports, surveys, sites
 - UI for upload and preview
 - 5-section bullet-only brief output (PDF/HTML/plain)
 
-## Phase 3 Lead Discovery (2–3 weeks)
+## Phase 3 Lead Discovery (2-3 weeks)
 - Compliant-source discovery per docs/COMPLIANT_SOURCES.md (registration registers, IATI, ReliefWeb, public org sites). No LinkedIn harvesting: prohibited by policy and blocked in code
 - Curated shortlist dashboard
 - CSV/CRM export
 
-## Phase 4 Outreach Drafting (1–2 weeks)
+## Phase 4 Outreach Drafting (1-2 weeks)
 - WhatsApp, LinkedIn, email drafts (human sends)
 - Dashboard for review and history
 
-## Phase 5 Integrations & Analytics (1–2 weeks)
+## Phase 5 Integrations & Analytics (1-2 weeks)
 - Optional CRM sync (HubSpot/Salesforce)
 - GA4 + Hotjar with consent banner
 - Performance polish, accessibility audit
@@ -142,4 +142,4 @@ Next steps
 
 ## Contribution and license
 
-Issues and pull requests are welcome — please open an issue describing the proposed change before submitting substantive work. This project is released under the MIT License.
+Issues and pull requests are welcome: please open an issue describing the proposed change before submitting substantive work. This project is released under the MIT License.

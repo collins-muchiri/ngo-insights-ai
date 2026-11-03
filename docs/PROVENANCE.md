@@ -12,7 +12,7 @@
 
 ## Third-party code
 
-- No vendored upstream code. Dependencies: Next.js 14.1.0, React 18, Tailwind, Prisma 4 (npm); scrapy/selenium/beautifulsoup4/langchain/openai/pandas/psycopg2 (python, `automation/requirements.txt`). Note: `automation/processors/ai_processor.py` imports `langchain_openai`, which the requirements file does not declare - undeclared dependency recorded in AUDIT.md R4.
+- No vendored upstream code. Dependencies: Next.js 14.1.0, React 18, Tailwind, Prisma 4 (npm); scrapy/selenium/beautifulsoup4/langchain/openai/pandas/psycopg2 (python, `automation/requirements.txt`). Note: `automation/processors/ai_processor.py` imports `langchain_openai`, which the requirements file does not declare: undeclared dependency recorded in AUDIT.md R4.
 
 ## Committed external data
 
