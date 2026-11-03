@@ -1,4 +1,4 @@
-# AUDIT.md - Phase 0 Forensic Audit
+# AUDIT.md: Phase 0 Forensic Audit
 
 Repo: ngo-insights-ai
 Audit date: 2026-10-24 (UTC, execution-environment clock)
@@ -28,19 +28,19 @@ Environment limits disclosed: no Docker daemon, no macOS runner. No CI exists in
 
 ## 3. Run results
 
-### 3.1 Web install - FAIL then PASS
-`npm ci` fails on a clean clone: "package.json and package-lock.json are not in sync" (autoprefixer 10.4.18 vs 10.6.1, postcss 8.4.35 vs 8.5.31, tailwindcss 3.4.1 vs 3.4.19, and more - verbatim in log). `npm install` succeeds and rewrites the lockfile (lockfile restored after the probe; committing a regenerated lockfile is a P1 decision).
+### 3.1 Web install: FAIL then PASS
+`npm ci` fails on a clean clone: "package.json and package-lock.json are not in sync" (autoprefixer 10.4.18 vs 10.6.1, postcss 8.4.35 vs 8.5.31, tailwindcss 3.4.1 vs 3.4.19, and more: verbatim in log). `npm install` succeeds and rewrites the lockfile (lockfile restored after the probe; committing a regenerated lockfile is a P1 decision).
 
-### 3.2 Web build - FAIL
+### 3.2 Web build: FAIL
 `next build` fails type checking: `components/Hero.tsx:47 Cannot find name 'Layout'` (a lucide-react icon used without import). The site as committed cannot be built. The README-documented quickstart therefore does not work on a clean clone.
 
-### 3.3 Python governance modules - PASS (smoke)
+### 3.3 Python governance modules: PASS (smoke)
 `src/outreach_gate.py` behaves as documented: refuses to create an outbound message without a named human approval (including `approved_by in {auto, system}`), refuses mismatched draft ids, and appends every decision to a JSONL audit log. `src/source_allowlist.py` imports clean and encodes terms URLs + review dates.
 
-### 3.4 Automation processors - NOT RUNNABLE (static finding)
+### 3.4 Automation processors: NOT RUNNABLE (static finding)
 `ai_processor.py` instantiates `ChatOpenAI(model="gpt-4")` at construction: requires OPENAI_API_KEY, violating the zero-secrets rule (0.10), with no local mock behind the interface. It also imports `langchain_openai`, which is NOT in `automation/requirements.txt` (undeclared dependency). `db_writer.py` raises without DATABASE_URL (fail-fast is fine, but no local fallback exists).
 
-### 3.5 Committed scraped data - INTEGRITY FINDING
+### 3.5 Committed scraped data: INTEGRITY FINDING
 `automation/data/ngo_news_eastafrica_20260118_152151.json` is labelled "eastafrica" but its contents are ReliefWeb *world/Oceania* alerts (e.g. "Alertes de maladies ... en Océanie", url `reliefweb.int/country/wld`). The artefact is mislabelled and does not support any East-Africa claim.
 
 ## 4. Gap matrix vs Definition of Done
@@ -62,13 +62,13 @@ Environment limits disclosed: no Docker daemon, no macOS runner. No CI exists in
 | D13 15-min evaluator path | ABSENT | README quickstart does not run | S |
 | D14 no theatre | FAIL | README advertises features/structure that do not exist (about.tsx, Footer.tsx, backend/, Airflow/Prefect, Twilio); TODO_TRIAGE.md is an empty template | M |
 
-Mission spec 3.3 delta: SMS/USSD/WhatsApp/IVR channels, ODK/XLSForm, language-ID for 8 languages, triage classifier, hotspot detection, BERTopic, safeguarding store, eval harness with kappa - NONE present. The repo today is a marketing site plus two governance modules plus a broken scraper pipeline. This is the largest spec-to-reality gap of the five.
+Mission spec 3.3 delta: SMS/USSD/WhatsApp/IVR channels, ODK/XLSForm, language-ID for 8 languages, triage classifier, hotspot detection, BERTopic, safeguarding store, eval harness with kappa: NONE present. The repo today is a marketing site plus two governance modules plus a broken scraper pipeline. This is the largest spec-to-reality gap of the five.
 
 ## 5. Risk register
 
 | ID | Risk | Class | Sev | Remediation |
 |---|---|---|---|---|
-| R1 | README advertises "Lead Discovery (LinkedIn ...)" while docs/COMPLIANT_SOURCES.md prohibits LinkedIn scraping - self-contradiction a reviewer will read as either ignorance or deceit | legal/integrity | P0 | P1: strip LinkedIn from README feature claims; keep compliant source list as the single truth |
+| R1 | README advertises "Lead Discovery (LinkedIn ...)" while docs/COMPLIANT_SOURCES.md prohibits LinkedIn scraping: self-contradiction a reviewer will read as either ignorance or deceit | legal/integrity | P0 | P1: strip LinkedIn from README feature claims; keep compliant source list as the single truth |
 | R2 | Web app does not build (Hero.tsx) and `npm ci` fails | correctness | P0 | P1: import fix + lockfile regeneration + CI build gate |
 | R3 | Mislabeled scraped dataset ("eastafrica" containing Oceania items) committed as if evidence | data honesty (0.1/0.5) | P0 | P1: quarantine under `automation/data/QUARANTINED/` with a README explaining the defect, or delete and re-scrape with region filter + allowlist enforcement |
 | R4 | ai_processor requires OpenAI key, undeclared langchain-openai dep, no mock | 0.10 zero-secrets | P1 | P1/P3: provider-agnostic adapter + deterministic local mock + contract tests (per mission 3.3) |
@@ -80,12 +80,12 @@ Mission spec 3.3 delta: SMS/USSD/WhatsApp/IVR channels, ODK/XLSForm, language-ID
 
 | CLAIM | EVIDENCE | VERDICT |
 |---|---|---|
-| "Lead Discovery & Shortlisting (LinkedIn, NGO sites, job postings)" (README) | LinkedIn prohibited by own COMPLIANT_SOURCES.md; no discovery code beyond broken scraper | NOT BACKED - contradicts repo's own governance doc |
+| "Lead Discovery & Shortlisting (LinkedIn, NGO sites, job postings)" (README) | LinkedIn prohibited by own COMPLIANT_SOURCES.md; no discovery code beyond broken scraper | NOT BACKED: contradicts repo's own governance doc |
 | "Outreach Message Drafting (WhatsApp, LinkedIn, email drafts)" | No drafting code; only the send gate exists | NOT BACKED |
-| Project structure listing `about.tsx`, `Footer.tsx`, `backend/` | Files/dirs absent from tree | FALSE - remove from README |
-| Tech stack "Airflow or Prefect", "Twilio WhatsApp API", "S3" | Nothing of the kind in tree or deps | ASPIRATIONAL - move to roadmap section |
+| Project structure listing `about.tsx`, `Footer.tsx`, `backend/` | Files/dirs absent from tree | FALSE: remove from README |
+| Tech stack "Airflow or Prefect", "Twilio WhatsApp API", "S3" | Nothing of the kind in tree or deps | ASPIRATIONAL: move to roadmap section |
 | "Human-in-the-loop outreach (no automated messaging)" | outreach_gate smoke test this session: refusals + JSONL log (python-smoke.log) | SUPPORTED (for the gate module itself) |
-| BRIEF_QUALITY_EVAL.md: "The result is published in EVALUATION.md" | No EVALUATION.md exists | PROMISE UNKEPT - write it in P5 or mark protocol-only |
+| BRIEF_QUALITY_EVAL.md: "The result is published in EVALUATION.md" | No EVALUATION.md exists | PROMISE UNKEPT: write it in P5 or mark protocol-only |
 | v0.3.0 "Compliance release: prohibited sources removed, gates enforced in code" | source_allowlist.py + outreach_gate.py exist and work; scraper data still committed and mislabelled | PARTIAL |
 
 ## 7. Sequenced work plan
